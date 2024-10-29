@@ -1,6 +1,5 @@
 dto\UsuarioDto.class
+controladores\LoginController.class
 servicios\UsuarioImplementacion.class
-controladores\Inicio.class
 servicios\UsuarioInterfaz.class
-config\MiAplicacion.class
-dto\ClubDto.class
+controladores\Inicio.class

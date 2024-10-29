@@ -1,8 +1,6 @@
 package servicios;
 
-import java.util.Scanner;
-
-import javax.security.sasl.AuthenticationException;
+import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,34 +12,29 @@ import org.springframework.stereotype.Service;
 @Service
 public class UsuarioImplementacion implements UsuarioInterfaz {
 
-    private final AuthenticationManager authenticationManager;
-    private final PasswordEncoder passwordEncoder;
+    @Autowired
+    private AuthenticationManager authenticationManager; // Maneja la autenticación
 
     @Autowired
-    public UsuarioImplementacion(AuthenticationManager authenticationManager, PasswordEncoder passwordEncoder) {
-        this.authenticationManager = authenticationManager;
-        this.passwordEncoder = passwordEncoder;
-    }
+    private PasswordEncoder passwordEncoder; // Para codificar las contraseñas
 
     @Override
-    public void Login() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese su DNI:");
-        String dni = sc.nextLine();
-        System.out.println("Ingrese su contraseña:");
-        String contrasenia = sc.nextLine();
-
+    public void Login(String correo, String contrasenia) throws IOException {
         try {
-            // Intento de autenticación
-            Authentication authRequest = new UsernamePasswordAuthenticationToken(dni, contrasenia);
-            Authentication authentication = authenticationManager.authenticate(authRequest);
+            // Crea un token de autenticación usando el correo y la contraseña
+            UsernamePasswordAuthenticationToken token = 
+                    new UsernamePasswordAuthenticationToken(correo, contrasenia);
+            
+            // Realiza la autenticación
+            Authentication auth = authenticationManager.authenticate(token);
 
             // Si la autenticación es exitosa
-            if (authentication.isAuthenticated()) {
-                System.out.println("Inicio de sesión exitoso. ¡Bienvenido, " + dni + "!");
+            if (auth.isAuthenticated()) {
+                System.out.println("Login exitoso para: " + correo);
             }
-        } catch (AuthenticationException e) {
-            System.out.println("Credenciales incorrectas. Por favor, inténtelo de nuevo.");
+        } catch (Exception e) {
+            // Manejo de excepciones
+            System.out.println("Error en el inicio de sesión: " + e.getMessage());
         }
     }
 }
