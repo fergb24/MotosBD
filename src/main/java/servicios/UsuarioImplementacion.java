@@ -1,40 +1,24 @@
 package servicios;
 
-import java.io.IOException;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import dto.UsuarioDto;
 
 @Service
 public class UsuarioImplementacion implements UsuarioInterfaz {
 
     @Autowired
-    private AuthenticationManager authenticationManager; // Maneja la autenticación
-
-    @Autowired
-    private PasswordEncoder passwordEncoder; // Para codificar las contraseñas
+    private UsuarioRepositorio usuarioRepositorio; // Repositorio para interactuar con la base de datos
 
     @Override
-    public void Login(String correo, String contrasenia) throws IOException {
-        try {
-            // Crea un token de autenticación usando el correo y la contraseña
-            UsernamePasswordAuthenticationToken token = 
-                    new UsernamePasswordAuthenticationToken(correo, contrasenia);
-            
-            // Realiza la autenticación
-            Authentication auth = authenticationManager.authenticate(token);
-
-            // Si la autenticación es exitosa
-            if (auth.isAuthenticated()) {
-                System.out.println("Login exitoso para: " + correo);
-            }
-        } catch (Exception e) {
-            // Manejo de excepciones
-            System.out.println("Error en el inicio de sesión: " + e.getMessage());
+    public boolean Login(String correo, String contrasenia) {
+        // Buscar el usuario por correo
+        UsuarioDto usuario = usuarioRepositorio.findByCorreo(correo);
+        if (usuario != null) {
+            // Comprobar si la contraseña es correcta
+            return usuario.getContrasenia().equals(contrasenia);
         }
+        return false; // Usuario no encontrado
     }
 }

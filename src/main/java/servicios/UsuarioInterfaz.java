@@ -16,8 +16,9 @@ public interface UsuarioInterfaz {
 	 * Login
 	 * 
 	 * @author nrojlla 291024
+	 * @return 
 	 * @throws IOException
 	 */
-	void Login(String correo, String contrasenia) throws IOException ;
+	boolean Login(String correo, String contrasenia) throws IOException ;
 
 }

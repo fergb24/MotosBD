@@ -1,5 +1,6 @@
 dto\UsuarioDto.class
 controladores\LoginController.class
 servicios\UsuarioImplementacion.class
+servicios\UsuarioRepositorio.class
 controladores\Inicio.class
 servicios\UsuarioInterfaz.class
