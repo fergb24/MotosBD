@@ -3,13 +3,21 @@
  */
 package dto;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 /**
  * Datos de usuario
  * 
  * @author nrojlla 101024
  */
-public class UsuarioDto {
 
+@Entity
+@Table(name = "usuario", schema = "dlk_motos")
+public class UsuarioDto {
+	
+	@Id
 	Long id;
 	String nombre = "aaaaa";
 	String apellidos = "aaaaa";

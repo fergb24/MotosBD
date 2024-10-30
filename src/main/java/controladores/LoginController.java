@@ -1,5 +1,6 @@
 package controladores;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,22 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dto.UsuarioDto;
 import servicios.UsuarioImplementacion;
-import servicios.UsuarioInterfaz;
 
 @RestController
 @RequestMapping(value = "/api/inicio")
 public class LoginController {
-	
-    UsuarioInterfaz ui = new UsuarioImplementacion();
- 
-    // Manejar GET para mostrar el formulario de inicio de sesión (puedes devolver una vista o HTML)
+
+	@Autowired
+    private UsuarioImplementacion ui ;
+
     @GetMapping("/login")
     public String mostrarFormularioLogin() {
-        // Aquí puedes devolver una vista HTML, o simplemente un mensaje
-        return "Mostrar formulario de inicio de sesión"; // Puedes cambiarlo para que devuelva una vista real
+        return "Mostrar formulario de inicio de sesión"; // Cambia esto si es necesario
     }
 
-    // Manejar POST para el inicio de sesión
     @PostMapping("/login")
     public String login(@RequestBody UsuarioDto usuarioDto) {
         try {
@@ -31,7 +29,7 @@ public class LoginController {
             if (loginExitoso) {
                 return "Login exitoso para: " + usuarioDto.getCorreo();
             } else {
-                return "Credenciales inválidas"; // Manejo del fallo en el inicio de sesión
+                return "Credenciales inválidas";
             }
         } catch (Exception e) {
             return "Error en el inicio de sesión: " + e.getMessage();
