@@ -19,7 +19,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String mostrarFormularioLogin() {
-        return "Mostrar formulario de inicio de sesión"; // Cambia esto si es necesario
+        return "Mostrar formulario de inicio de sesión";
     }
 
     @PostMapping("/login")

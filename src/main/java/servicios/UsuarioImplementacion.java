@@ -13,14 +13,12 @@ public class UsuarioImplementacion implements UsuarioInterfaz {
 
     public boolean Login(String correo, String contrasenia) {
         
-    	// Buscar el usuario por correo
         UsuarioDto usuario = usuarioRepositorio.findByCorreo(correo);
         if (usuario != null) {
-            // Comprobar si la contraseña es correcta
             return usuario.getContrasenia().equals(contrasenia);
         }else {
 			System.out.println("Usuario null");
 		}
-        return false; // Usuario no encontrado
+        return false;
     }
 }

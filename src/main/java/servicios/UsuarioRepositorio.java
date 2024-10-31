@@ -17,7 +17,7 @@ public class UsuarioRepositorio {
     private DataSource dataSource;
 
     public UsuarioDto findByCorreo(String correo) {
-        String sql = "SELECT * FROM \"dlk_motos\".usuario WHERE correo = ?";
+        String sql = "SELECT * FROM \"dlk_motos\".usuario WHERE correo_usuario = ?";
         UsuarioDto usuario = null;
 
         try (Connection connection = dataSource.getConnection();
@@ -28,12 +28,11 @@ public class UsuarioRepositorio {
 
             if (resultSet.next()) {
                 usuario = new UsuarioDto();
-                usuario.setCorreo(resultSet.getString("correo"));
-                usuario.setContrasenia(resultSet.getString("contrasenia"));
-                // Rellena otros campos según lo que necesites
+                usuario.setCorreo(resultSet.getString("correo_usuario"));
+                usuario.setContrasenia(resultSet.getString("contra_usuario"));
             }
         } catch (SQLException e) {
-            e.printStackTrace(); // Manejo de excepciones
+            e.printStackTrace();
         }
         return usuario;
     }
