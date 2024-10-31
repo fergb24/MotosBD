@@ -11,7 +11,7 @@ public class AppConfig {
 
 	@Bean
 	public UsuarioImplementacion usuarioImplementacion() {
-		return new UsuarioImplementacion(null);
+		return new UsuarioImplementacion();
 	}
 	
 	@Bean
