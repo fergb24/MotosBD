@@ -1,24 +1,22 @@
-/**
- * 
- */
 package servicios;
 
 import java.io.IOException;
 
 /**
- * Lista de metodos de usuario
+ * Lista de métodos de usuario.
+ * Esta interfaz define los métodos que deben implementarse para la gestión de usuarios.
  * 
  * @author nrojlla 141024
  */
 public interface UsuarioInterfaz {
 	
 	/**
-	 * Login
+	 * Método para realizar el inicio de sesión de un usuario.
 	 * 
-	 * @author nrojlla 291024
-	 * @return 
-	 * @throws IOException
+	 * @param correo Correo electrónico del usuario.
+	 * @param contrasenia Contraseña del usuario.
+	 * @return true si el inicio de sesión es exitoso, false en caso contrario.
+	 * @throws IOException Si ocurre un error de entrada/salida durante el proceso de inicio de sesión.
 	 */
-	boolean Login(String correo, String contrasenia) throws IOException ;
-
+	boolean Login(String correo, String contrasenia) throws IOException;
 }
