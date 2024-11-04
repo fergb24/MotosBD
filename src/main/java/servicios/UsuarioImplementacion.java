@@ -5,9 +5,15 @@ import org.springframework.stereotype.Service;
 
 import dto.UsuarioDto;
 
+/**
+ * Clase que implementa la interfaz `UsuarioInterfaz` y proporciona la lógica de los metodos.
+ * 
+ * @author nrojlla 29102024
+ */
 @Service
 public class UsuarioImplementacion implements UsuarioInterfaz {
-
+	
+    // Inyección de dependencias del repositorio de usuario para acceder a los datos de usuario en la base de datos.
     @Autowired
     private UsuarioRepositorio usuarioRepositorio;
 
