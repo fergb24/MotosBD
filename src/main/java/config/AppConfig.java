@@ -3,6 +3,8 @@ package config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import servicios.ClubImplementacion;
+import servicios.ClubRepositorio;
 import servicios.UsuarioImplementacion;
 import servicios.UsuarioRepositorio;
 
@@ -17,6 +19,16 @@ public class AppConfig {
 	@Bean
 	public UsuarioRepositorio usuarioRepositorio() {
 		return new UsuarioRepositorio();
+	}
+	
+	@Bean
+	public ClubImplementacion clubImplementacion() {
+		return new ClubImplementacion();
+	}
+	
+	@Bean
+	public ClubRepositorio clubRepositorio() {
+		return new ClubRepositorio();
 	}
 	
 }

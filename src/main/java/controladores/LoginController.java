@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import dto.ClubDto;
 import dto.UsuarioDto;
+import servicios.ClubImplementacion;
 import servicios.UsuarioImplementacion;
 
 @RestController
@@ -16,6 +18,9 @@ public class LoginController {
 
 	@Autowired
     private UsuarioImplementacion ui ;
+	
+	@Autowired
+	private ClubImplementacion ci;
 
     @GetMapping("/login")
     public String mostrarFormularioLogin() {
@@ -35,4 +40,20 @@ public class LoginController {
             return "Error en el inicio de sesión: " + e.getMessage();
         }
     }
+    
+    @PostMapping("/alta")
+    public String alta(@RequestBody ClubDto clubDto ) {
+		try {
+			boolean altaExitosa = ci.altaClub(clubDto.getId(), clubDto.getNombre(), clubDto.getEmail());
+			if (altaExitosa) {
+				return "Se ha realizado el alta correctamente";
+			} else {
+				return "Ha habido un error con el alta del club";
+			}
+		} catch (Exception e) {
+			return "Error en el alta del club: " + e.getMessage();
+		}
+    	
+    }
+    
 }
