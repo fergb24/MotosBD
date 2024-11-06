@@ -29,15 +29,16 @@ public class ClubRepositorio {
 			ps.setLong(1, id);
 			ps.setString(2, nombre);
 			ps.setString(3, email);
-			ResultSet rs = ps.executeQuery();
+			ps.executeUpdate();
 			
-			if (rs.next()) {
-				club = new ClubDto();
-				club.setId(rs.getLong("id"));
-				club.setNombre(rs.getString("nombre"));
-				club.setEmail(rs.getString("email"));
+			ResultSet rs;
+			
+			/*
+			 * if (rs.next()) { club = new ClubDto(); club.setId(rs.getLong("id"));
+			 * club.setNombre(rs.getString("nombre")); club.setEmail(rs.getString("email"));
+			 */
 				
-			}
+			//}
 			
 			
 		} catch (SQLException e) {
