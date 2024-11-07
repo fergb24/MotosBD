@@ -68,7 +68,14 @@ public class LoginController {
 																		// excepción.
 		}
 	}
-
+	/**
+	 * Endpoint de tipo POST para procesar el alta de un club. Recibe un objeto
+	 * `ClubDto` con los datos del club que queremos registrar
+	 * 
+	 * @param clubDto objeto que contiene las credenciales del club
+	 * @return un mensaje indicando si el alta se ha realizado correctamente
+	 * @author fgarabe 071124
+	 */
 	@PostMapping("/alta")
 	public String alta(@RequestBody ClubDto clubDto) {
 		try {
@@ -83,7 +90,15 @@ public class LoginController {
 		}
 
 	}
-
+	
+	/**
+	 * Endpoint de tipo DELETE para procesar la baja de un club. Recibe un objeto
+	 * `ClubDto` con los datos del club que queremos eliminar
+	 * 
+	 * @param clubDto objeto que contiene las credenciales del club
+	 * @return un mensaje indicando si el alta se ha realizado correctamente
+	 * @author fgarabe 071124
+	 */
 	@DeleteMapping("/baja")
 	public String baja(@RequestBody ClubDto clubDto) {
 		try {
