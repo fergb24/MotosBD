@@ -1,7 +1,17 @@
 package dto;
 
+/**
+ * Clase que contiene todos los campos de la tabla club
+ */
 public class ClubDto {
 	
+	/**
+	 * Constructor con todos los campos de la tabla club
+	 * RPG-071124
+	 * @param id
+	 * @param nombre
+	 * @param email
+	 */
 	public ClubDto(long id, String nombre, String email) {
 		super();
 		this.id = id;
@@ -9,12 +19,22 @@ public class ClubDto {
 		this.email = email;
 	}
 	
+	/**
+	 * Constructor vacio
+	 */
 	public ClubDto() {}
 	
+	/**
+	 * Atributos
+	 */
 	private long id;
 	private String nombre;
 	private String email;
 	
+	/**
+	 * Metodos getters y setters (get-lectura/set-escritura)
+	 * @return
+	 */
 	public long getId() {
 		return id;
 	}
