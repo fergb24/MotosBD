@@ -8,26 +8,24 @@ import dto.UsuarioDto;
 /**
  * Implementa la interfaz UsuarioInterfaz y proporciona la lógica de los
  * metodos.
+ * 
+ * @author nrojlla 311024
  */
 @Service
 public class UsuarioImplementacion implements UsuarioInterfaz {
 
-	@Autowired // Inyecta el repositorio de usuario.
+	@Autowired
 	private UsuarioRepositorio usuarioRepositorio;
 
 	public boolean Login(String correo, String contrasenia) {
-		// Busca el usuario por correo en el repositorio.
+
 		UsuarioDto usuario = usuarioRepositorio.findByCorreo(correo);
 
-		// Verifica si el usuario fue encontrado.
 		if (usuario != null) {
-			// Compara la contraseña proporcionada con la almacenada.
 			return usuario.getContrasenia().equals(contrasenia);
 		} else {
-			// Imprime un mensaje si el usuario no fue encontrado.
 			System.out.println("Usuario no encontrado con el correo: " + correo);
 		}
-		// Retorna false si el usuario no existe o la contraseña no coincide.
 		return false;
 	}
 

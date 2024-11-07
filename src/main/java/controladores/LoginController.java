@@ -36,6 +36,7 @@ public class LoginController {
 	 * un mensaje indicando que se debe mostrar el formulario de inicio de sesión.
 	 * 
 	 * @return un mensaje indicando que se debe mostrar el formulario.
+	 * @author nrojlla 311024
 	 */
 	@GetMapping("/login")
 	public String mostrarFormularioLogin() {
@@ -48,6 +49,7 @@ public class LoginController {
 	 * 
 	 * @param usuarioDto objeto que contiene las credenciales del usuario.
 	 * @return un mensaje indicando si el inicio de sesión fue exitoso o no.
+	 * @author nrojlla 311024
 	 */
 	@PostMapping("/login")
 	public String login(@RequestBody UsuarioDto usuarioDto) {
@@ -83,11 +85,12 @@ public class LoginController {
 	}
 
 	@DeleteMapping("/baja")
-	public void baja(@RequestBody ClubDto clubDto) {
+	public String baja(@RequestBody ClubDto clubDto) {
 		try {
 			ci.compararClub(clubDto, clubDto.getEmail());
+			 return "Club dado de baja exitosamente."; 
 		} catch (Exception e) {
-			System.out.println("Error en la baja del club: " + e.getMessage());
+			 return "Error en la baja del club: " + e.getMessage();
 		}
 
 	}

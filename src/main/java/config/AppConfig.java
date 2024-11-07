@@ -24,6 +24,7 @@ public class AppConfig {
 	 * contenedor de Spring.
 	 * 
 	 * @return una nueva instancia de `UsuarioImplementacion`
+	 * @author nrojlla 311024
 	 */
 	@Bean
 	public UsuarioImplementacion usuarioImplementacion() {
@@ -35,6 +36,7 @@ public class AppConfig {
 	 * instancia de `UsuarioRepositorio`, que también será administrada por Spring.
 	 * 
 	 * @return una nueva instancia de `UsuarioRepositorio`
+	 * @author nrojlla 31s1024
 	 */
 	@Bean
 	public UsuarioRepositorio usuarioRepositorio() {

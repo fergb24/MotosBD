@@ -20,7 +20,7 @@ public class ClubRepositorio {
 
 	public ClubDto introducirDatos(long id, String nombre, String email) {
 
-		String sql = "INSERT INTO \"public\".club (id, nombre, email) VALUES (?, ?, ?) ";
+		String sql = "INSERT INTO \"dlk_motos\".club (id, nombre, email) VALUES (?, ?, ?) ";
 		ClubDto club = null;
 
 		try (Connection connection = dataSource.getConnection();
@@ -38,7 +38,7 @@ public class ClubRepositorio {
 	}
 
 	public ClubDto encontrarCorreo(String email) {
-		String sql = "SELECT * FROM \"public\".club WHERE email = ?";
+		String sql = "SELECT * FROM \"dlk_motos\".club WHERE email = ?";
 		ClubDto club = null;
 
 		try (Connection connection = dataSource.getConnection();
@@ -59,22 +59,20 @@ public class ClubRepositorio {
 
 	public void eliminarClub(String email) {
 
-		String sql = "DELETE FROM \"public\".club WHERE email = ?";
+		String sql = "DELETE FROM \"dlk_motos\".club WHERE email = ?";
 
 		try (Connection connection = dataSource.getConnection();
 				PreparedStatement ps = connection.prepareStatement(sql)) {
 
 			ps.setString(1, email);
-			int rowsAffected = ps.executeUpdate();  // Este método ejecuta la consulta y devuelve el número de filas afectadas
+			int rowsAffected = ps.executeUpdate(); 
 
-	        // Comprobar cuántas filas se han eliminado
 	        if (rowsAffected > 0) {
 	            System.out.println("Club con email " + email + " eliminado correctamente.");
 	        } else {
 	            System.out.println("No se encontró ningún club con el email " + email + ".");
 	        }
-			
-			
+						
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

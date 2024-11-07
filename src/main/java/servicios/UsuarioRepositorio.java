@@ -31,6 +31,7 @@ public class UsuarioRepositorio {
 	 * @param correo Dirección de correo electrónico del usuario a buscar.
 	 * @return `UsuarioDto` con los datos del usuario si se encuentra, o `null` si
 	 *         no se encuentra el usuario.
+	 * @author nrojlla 31102024
 	 */
 	public UsuarioDto findByCorreo(String correo) {
 		String sql = "SELECT * FROM \"dlk_motos\".usuario WHERE correo_usuario = ?";
