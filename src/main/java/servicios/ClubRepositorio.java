@@ -15,7 +15,7 @@ import dto.ClubDto;
 /**
  * Clase para poder acceder y modificar los datos de la BBDD,
  * concretamente los existentes en la tabla club
- * RPG-071124
+ * @author RPG-071124
  */
 @Repository
 public class ClubRepositorio {
@@ -26,7 +26,7 @@ public class ClubRepositorio {
 	/**
 	 * Metodo mediante el cual el usuario podra introducir los valores que quiera en los 
 	 * campos de la tabla club para dar de esta forma la alta de un nuevo club con dichos valores
-	 * RPG-071124
+	 * @author RPG-071124
 	 * @param id
 	 * @param nombre
 	 * @param email
@@ -54,7 +54,7 @@ public class ClubRepositorio {
 	/**
 	 * Se introduce el email de un club para darlo de baja. Este metodo busca y compara el email
 	 * previamente introducido con los existentes en la BBDD para ver si estos coinciden
-	 * RPG-071124
+	 * @author RPG-071124
 	 * @param email
 	 * @return
 	 */
@@ -80,7 +80,7 @@ public class ClubRepositorio {
 
 	/**
 	 * Metodo el cual se permite que un club se de de baja en nuestra aplicacion
-	 * RPG-071124
+	 * @author RPG-071124
 	 * @param email
 	 */
 	public void eliminarClub(String email) {

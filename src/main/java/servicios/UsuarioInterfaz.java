@@ -3,7 +3,6 @@ package servicios;
 import java.io.IOException;
 
 /**
-<<<<<<< HEAD
  * Interfaz que define la lista de métodos relacionados con los usuarios en el sistema.
  * 
  * @author nrojlla 141024

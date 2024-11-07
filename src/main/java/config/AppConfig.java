@@ -46,12 +46,26 @@ public class AppConfig {
 	public UsuarioRepositorio usuarioRepositorio() {
 		return new UsuarioRepositorio();
 	}
-
+	
+	/**
+	 * Define un bean de tipo `UsuarioRepositorio`. Este método crea y configura una
+	 * instancia de `UsuarioRepositorio`, que también será administrada por Spring.
+	 * 
+	 * @return una nueva instancia de `UsuarioRepositorio`
+	 * @author RPG-071124
+	 */
 	@Bean
 	public ClubImplementacion clubImplementacion() {
 		return new ClubImplementacion();
 	}
-
+	
+	/**
+	 * Define un bean de tipo `UsuarioRepositorio`. Este método crea y configura una
+	 * instancia de `UsuarioRepositorio`, que también será administrada por Spring.
+	 * 
+	 * @return una nueva instancia de `UsuarioRepositorio`
+	 * @author RPG-071124
+	 */
 	@Bean
 	public ClubRepositorio clubRepositorio() {
 		return new ClubRepositorio();
