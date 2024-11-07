@@ -5,6 +5,11 @@ import org.springframework.stereotype.Service;
 
 import dto.ClubDto;
 
+/**
+ * Clase que implementa la interfaz de club 
+ * RPG-071124
+ * @author nrojlla 311024
+ */
 @Service
 public class ClubImplementacion implements ClubInterfaz {
 
