@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package dto;
 
 import jakarta.persistence.Entity;
@@ -5,209 +8,178 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 /**
- * Clase que representa los datos de un usuario en el sistema. La clase mapea la
- * tabla `usuario` de la base de datos ubicada en el esquema `dlk_motos`.
- * 
- * Esta clase define los atributos del usuario, tales como nombre, apellidos,
- * DNI, correo, foto, contraseña, teléfono y si es un club. Contiene un
- * constructor vacío, un constructor con parámetros y métodos `getter` y
- * `setter` para cada atributo.
+ * Datos de usuario
  * 
  * @author nrojlla 101024
  */
+
 @Entity
 @Table(name = "usuario", schema = "dlk_motos")
 public class UsuarioDto {
+	
+	@Id
+	Long id;
+	String nombre = "aaaaa";
+	String apellidos = "aaaaa";
+	String dni = "aaaaa";
+	String correo = "aaaaa";
+	String foto = "aaaaa";
+	String contrasenia = "aaaaa";
+	int telefono = 1111111;
 
-    @Id
-    Long id;
-    // Atributos del usuario con valores predeterminados
-    String nombre = "aaaaa";
-    String apellidos = "aaaaa";
-    String dni = "aaaaa";
-    String correo = "aaaaa";
-    String foto = "aaaaa";
-    String contrasenia = "aaaaa";
-    int telefono = 1111111;
-    // Indica si el usuario pertenece a un club
-    boolean esClub = false;
-    
-    /**
-     * Constructor vacío, necesario para frameworks de persistencia y otros usos.
-     */
-    public UsuarioDto() {
-    }
+	boolean esClub = false;
 
-    /**
-     * Constructor que permite inicializar todos los atributos de la clase.
-     * 
-     * @param id         El ID del usuario.
-     * @param nombre     El nombre del usuario.
-     * @param apellidos  Los apellidos del usuario.
-     * @param dni        El DNI del usuario.
-     * @param correo     El correo electrónico del usuario.
-     * @param foto       La foto del usuario.
-     * @param contrasenia La contraseña del usuario.
-     * @param telefono   El número de teléfono del usuario.
-     * @param esClub     Indica si el usuario es un club (true) o no (false).
-     */
-    public UsuarioDto(Long id, String nombre, String apellidos, String dni, String correo, String foto,
-                      String contrasenia, int telefono, boolean esClub) {
-        super();
-        this.id = id;
-        this.nombre = nombre;
-        this.apellidos = apellidos;
-        this.dni = dni;
-        this.correo = correo;
-        this.foto = foto;
-        this.telefono = telefono;
-        this.contrasenia = contrasenia;
-        this.esClub = esClub;
-    }
+	public UsuarioDto() {
+	}
 
-    // Métodos getter y setter para cada atributo de la clase
+	/**
+	 * @param id
+	 * @param nombre
+	 * @param apellidos
+	 * @param dni
+	 * @param correo
+	 * @param foto
+	 * @param contrasenia
+	 * @param telefono
+	 * @param esClub
+	 */
+	public UsuarioDto(Long id, String nombre, String apellidos, String dni, String correo, String foto, String contrasenia,
+			int telefono, boolean esClub) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.dni = dni;
+		this.correo = correo;
+		this.foto = foto;
+		this.telefono = telefono;
+		this.contrasenia = contrasenia;
+		this.esClub = esClub;
+	}
 
-    /**
-     * Obtiene el DNI del usuario.
-     * @return the dni del usuario.
-     */
-    public String getDni() {
-        return dni;
-    }
+	/**
+	 * @return the dni
+	 */
+	public String getDni() {
+		return dni;
+	}
 
-    /**
-     * Establece el DNI del usuario.
-     * @param dni el dni a establecer.
-     */
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
+	/**
+	 * @param dni the dni to set
+	 */
+	public void setDni(String dni) {
+		this.dni = dni;
+	}
+	/**
+	 * @return the id
+	 */
+	public Long getId() {
+		return id;
+	}
 
-    /**
-     * Obtiene el ID del usuario.
-     * @return el id del usuario.
-     */
-    public Long getId() {
-        return id;
-    }
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    /**
-     * Establece el ID del usuario.
-     * @param id el id a establecer.
-     */
-    public void setId(Long id) {
-        this.id = id;
-    }
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
 
-    /**
-     * Obtiene el nombre del usuario.
-     * @return el nombre del usuario.
-     */
-    public String getNombre() {
-        return nombre;
-    }
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 
-    /**
-     * Establece el nombre del usuario.
-     * @param nombre el nombre a establecer.
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+	/**
+	 * @return the apellidos
+	 */
+	public String getApellidos() {
+		return apellidos;
+	}
 
-    /**
-     * Obtiene el apellidos del usuario.
-     * @return los apellidos del usuario.
-     */
-    public String getApellidos() {
-        return apellidos;
-    }
+	/**
+	 * @param apellidos the apellidos to set
+	 */
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
+	}
 
-    /**
-     * Establece el apellidos del usuario.
-     * @param apellidos los apellidos a establecer.
-     */
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
-    }
+	/**
+	 * @return the correo
+	 */
+	public String getCorreo() {
+		return correo;
+	}
 
-    /**
-     * Obtiene el correo del usuario.
-     * @return el correo del usuario.
-     */
-    public String getCorreo() {
-        return correo;
-    }
+	/**
+	 * @param correo the correo to set
+	 */
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
 
-    /**
-     * Establece el correo del usuario.
-     * @param correo el correo a establecer.
-     */
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
+	/**
+	 * @return the foto
+	 */
+	public String getFoto() {
+		return foto;
+	}
 
-    /**
-     * Obtiene el foto del usuario.
-     * @return la foto del usuario.
-     */
-    public String getFoto() {
-        return foto;
-    }
+	/**
+	 * @param foto the foto to set
+	 */
+	public void setFoto(String foto) {
+		this.foto = foto;
+	}
 
-    /**
-     * Establece el foto del usuario.
-     * @param foto la foto a establecer.
-     */
-    public void setFoto(String foto) {
-        this.foto = foto;
-    }
+	/**
+	 * @return the telefono
+	 */
+	public int getTelefono() {
+		return telefono;
+	}
 
-    /**
-     * Obtiene el numero de telefono del usuario.
-     * @return el numero de teléfono del usuario.
-     */
-    public int getTelefono() {
-        return telefono;
-    }
+	/**
+	 * @param telefono the telefono to set
+	 */
+	public void setTelefono(int telefono) {
+		this.telefono = telefono;
+	}
 
-    /**     * 
-     * Establece el numero de teléfono del usuario.
-     * @param telefono el telefono a establecer.
-     */
-    public void setTelefono(int telefono) {
-        this.telefono = telefono;
-    }
+	/**
+	 * @return the contrasenia
+	 */
+	public String getContrasenia() {
+		return contrasenia;
+	}
 
-    /**
-     * Obtiene el contraseña del usuario.
-     * @return la contraseña del usuario.
-     */
-    public String getContrasenia() {
-        return contrasenia;
-    }
+	/**
+	 * @param contrasenia the contrasenia to set
+	 */
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
+	}
 
-    /**
-     * Establece el contraseña del usuario.
-     * @param contrasenia la contraseña a establecer.
-     */
-    public void setContrasenia(String contrasenia) {
-        this.contrasenia = contrasenia;
-    }
+	/**
+	 * @return the esClub
+	 */
+	public boolean isEsClub() {
+		return esClub;
+	}
 
-    /**
-     * Verifica si el usuario es un club.
-     * @return true si el usuario es un club, false en caso contrario.
-     */
-    public boolean isEsClub() {
-        return esClub;
-    }
+	/**
+	 * @param esClub the esClub to set
+	 */
+	public void setEsClub(boolean esClub) {
+		this.esClub = esClub;
+	}
 
-    /**
-     * Establece si el usuario es un club.
-     * @param esClub indica si el usuario es un club o no.
-     */
-    public void setEsClub(boolean esClub) {
-        this.esClub = esClub;
-    }
 }
